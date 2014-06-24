@@ -1,8 +1,8 @@
-# Node-Qt
+# Node-Qt (WIP)
 
 Node-Qt provides native bindings to the [Qt library](http://developer.qt.nokia.com/doc/qt-5.3/) as a [Node.js addon](http://nodejs.org/docs/latest/api/addons.html). The focus is on GUI bindings; there is no need to duplicate the functionality of the Node API and its modules.
 
-We try to follow [Qt's API](http://developer.qt.nokia.com/doc/qt-5.3/) as closely as possible, but sometimes quirks are inevitable (for example, virtual methods that handle events are translated into callback setters). See the header files in `src/` for a list of available bindings, and comments in `.cc` files for possible API differences.
+We try to follow [Qt's API](http://developer.qt.nokia.com/doc/qt-5.3/) as closely as possible, but there is some changes due to differences between nodejs and c++ and sometimes quirks are inevitable (for example, virtual methods that handle events are translated into callback setters). See the header files in `src/` for a list of available bindings, and comments in `.cc` files for possible API differences.
 
 Supported platforms: **Mac OS X** | **Windows** | **Linux**
 
@@ -20,7 +20,9 @@ var qt = require('..'),
 // Prevent objects from being GC'd
 global.app = app;
 
-var hello = new qt.QPushButton('Hello World');
+var hello = new qt.QPushButton('Hello World', function() {
+    console.log('hi');
+});
 hello.setGeometry(200,200,200,200);
 hello.show();
 
