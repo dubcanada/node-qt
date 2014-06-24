@@ -1,0 +1,28 @@
+{
+  "name": "node-qt",
+  "version": "0.0.1",
+  "author": "Steven Verbeek <dubcanada@gmail.com>",
+  "description": "Qt bindings for Node.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dubcanada/node-qt.git"
+  },
+  "homepage": "http://github.com/dubcanada/node-qt",
+  "main": "./lib/qt.js",
+  "keywords": [
+    "qt",
+    "gui",
+    "ui",
+    "graphics",
+    "audio",
+    "webkit"
+  ],
+  "engines": {
+    "node": ">=0.10.29"
+  },
+  "scripts": {
+    "install": "node-gyp rebuild"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
