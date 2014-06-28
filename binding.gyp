@@ -13,19 +13,25 @@
       ],
       'conditions': [
         ['OS=="mac"', {
+          'xcode_settings': {
+            'OTHER_CFLAGS': [
+              '-std=c++11 -stdlib=libc++',
+              '-mmacosx-version-min=10.7'
+            ],
+          },
           'include_dirs': [
             'deps/qt-5.3.0/darwin/x64/include',
             'deps/qt-5.3.0/darwin/x64/include/QtCore',
             'deps/qt-5.3.0/darwin/x64/include/QtGui',
             'deps/qt-5.3.0/darwin/x64/include/QtMultimedia',
-            'deps/qt-5.3.0/darwin/x64/include/QtTest'
+            'deps/qt-5.3.0/darwin/x64/include/QtWidgets'
           ],
           'libraries': [
             # TODO: fix node-gyp behavior that requires ../
             '../deps/qt-5.3.0/darwin/x64/lib/QtCore.framework/QtCore',
             '../deps/qt-5.3.0/darwin/x64/lib/QtGui.framework/QtGui',
-            '../deps/qt-5.3.0/darwin/x64/lib/QtGui.framework/QtMultimedia',
-            '../deps/qt-5.3.0/darwin/x64/lib/QtTest.framework/QtTest'
+            '../deps/qt-5.3.0/darwin/x64/lib/QtMultimedia.framework/QtMultimedia',
+            '../deps/qt-5.3.0/darwin/x64/lib/QtWidgets.framework/QtWidgets'
           ],
         }],
         ['OS=="linux"', {
