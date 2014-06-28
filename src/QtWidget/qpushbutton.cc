@@ -46,6 +46,8 @@ void QPushButtonWrap::Initialize(Handle<Object> target) {
   tpl->InstanceTemplate()->SetInternalFieldCount(1);
 
   // Prototype
+  tpl->PrototypeTemplate()->Set(String::NewSymbol("setObjectName"),
+      FunctionTemplate::New(setObjectName)->GetFunction());
   tpl->PrototypeTemplate()->Set(String::NewSymbol("show"),
       FunctionTemplate::New(Show)->GetFunction());
   tpl->PrototypeTemplate()->Set(String::NewSymbol("setGeometry"),
@@ -88,6 +90,21 @@ Handle<Value> QPushButtonWrap::setGeometry(const Arguments& args) {
 
   q->setGeometry(args[0]->IntegerValue(), args[1]->IntegerValue(),
                 args[2]->IntegerValue(), args[3]->IntegerValue());
+
+  return scope.Close(Undefined());
+}
+
+Handle<Value> QPushButtonWrap::setObjectName(const Arguments& args) {
+  HandleScope scope;
+
+  QPushButtonWrap* w = ObjectWrap::Unwrap<QPushButtonWrap>(args.This());
+  QPushButton* q = w->GetWrapped();
+
+  if (!args[0]->IsString())
+    return ThrowException(Exception::TypeError(
+        String::New("QPushButton:setObjectName: bad argument")));
+
+  q->setObjectName(qt_v8::ToQString(args[0]->ToString()));
 
   return scope.Close(Undefined());
 }

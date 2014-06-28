@@ -32,9 +32,10 @@
 
 #include "QtCore/qsize.h"
 
-#include "QtGui/qapplication.h"
+#include "QtWidget/qapplication.h"
 #include "QtWidget/qlabel.h"
 #include "QtWidget/qpushbutton.h"
+#include "QtMultimedia/qsound.h"
 
 using namespace v8;
 
@@ -42,6 +43,7 @@ void Initialize(Handle<Object> target) {
   QApplicationWrap::Initialize(target);
   QLabelWrap::Initialize(target);
   QPushButtonWrap::Initialize(target);
+  QSoundWrap::Initialize(target);
 }
 
 NODE_MODULE(qt, Initialize)
