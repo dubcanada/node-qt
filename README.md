@@ -87,6 +87,12 @@ $ cd node-qt
 $ npm install
 ```
 
+### Binding new classes & methods
+
+Run `node tools/gen.js` for list of options.
+
+### Manually binding new classes & methods
+
 #### Binding to new classes
 
 1. Create your files (e.g. `qclass.h`, `qclass.cc`) from the provided templates `src/template.h`, `src/template.cc`
@@ -100,3 +106,5 @@ $ npm install
 1. `qclass.h`: Declare static method as per `Example()` method in `template.h`
 2. `qclass.cc`: Implement method as per `Example()` in `template.cc`
 3. `qclass.cc`: Expose method to JavaScript via `tpl->PrototypeTemplate()` call in `Initialize()`. Again see template.cc.
+
+Add lines too binding.gyp and qt.cc (see each file for examples).

@@ -23,6 +23,8 @@
   "scripts": {
     "install": "node-gyp rebuild"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "yargs": "*"
+  },
   "optionalDependencies": {}
 }
