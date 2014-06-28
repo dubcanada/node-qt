@@ -1,5 +1,7 @@
 # Node-Qt (WIP)
 
+[![Analytics](https://ga-beacon.appspot.com/UA-52352671-1/dubcanada/node-qt)](https://github.com/igrigorik/ga-beacon)
+
 Node-Qt provides native bindings to the [Qt library](http://developer.qt.nokia.com/doc/qt-5.3/) as a [Node.js addon](http://nodejs.org/docs/latest/api/addons.html). The focus is on GUI bindings; there is no need to duplicate the functionality of the Node API and its modules.
 
 We try to follow [Qt's API](http://developer.qt.nokia.com/doc/qt-5.3/) as closely as possible, but there is some changes due to differences between nodejs and c++ and sometimes quirks are inevitable (for example, virtual methods that handle events are translated into callback setters). See the header files in `src/` for a list of available bindings, and comments in `.cc` files for possible API differences.
