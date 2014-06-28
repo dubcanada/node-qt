@@ -81,7 +81,13 @@ Handle<Value> QPushButtonWrap::setGeometry(const Arguments& args) {
   QPushButtonWrap* w = ObjectWrap::Unwrap<QPushButtonWrap>(args.This());
   QPushButton* q = w->GetWrapped();
 
-  q->setGeometry(200,200,200,200);
+  if (!args[0]->IsNumber() || !args[1]->IsNumber() || !args[2]->IsNumber() ||
+      !args[3]->IsNumber())
+    return ThrowException(Exception::TypeError(
+        String::New("QPushButtonWrap:setGeometry: bad arguments")));
+
+  q->setGeometry(args[0]->IntegerValue(), args[1]->IntegerValue(),
+                args[2]->IntegerValue(), args[3]->IntegerValue());
 
   return scope.Close(Undefined());
 }
